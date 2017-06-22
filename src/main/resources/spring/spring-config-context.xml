@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd"
+       >
+	
+	<description>Spring总配置</description>
+  	
+  	<import resource="classpath*:spring/spring-config-datasource.xml" />
+  	<import resource="classpath*:spring/spring-config-mybatis.xml" />
+  	<import resource="classpath*:spring/spring-config-redis.xml" />
+  	<import resource="classpath*:spring/spring-config-shiro.xml" />
+  	
+  	
+</beans>

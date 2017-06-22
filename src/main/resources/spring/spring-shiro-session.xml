@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	>
+
+	<description>Spring Shiro 会话管理器配置</description>
+	
+	
+	<!-- 使用redis作Session缓存  开始 -->
+	<import resource="classpath:spring/spring-config-redis.xml" />
+	<!-- session 创建、删除、查询 -->
+	<bean id="sessionJedisManager" class="cn.jufuns.core.shiro.cache.jedis.support.SessionJedisManager">
+		<property name="jedisPool" ref="jedisPool" />
+	</bean>
+	
+	
+	<bean id="jedisSessionRepository" class="cn.jufuns.core.shiro.cache.repo.JedisSessionRepository">
+		<property name="jedisManager" ref="sessionJedisManager" />
+	</bean>
+
+	<!-- 会话Cookie模板 -->
+	<bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+		<constructor-arg value="session_id_cookie" />
+		<property name="httpOnly" value="true" />
+		<property name="maxAge" value="1800000" />
+		<!-- <property name="domain" value=".zhaozhiwen.net.cn"/> -->
+	</bean>
+	<!-- 自定义会话监听器 -->
+	<bean id="sessionListener" class="cn.jufuns.core.shiro.session.listener.SessionListener">
+		<property name="sessionRepository" ref="jedisSessionRepository" />
+	</bean>
+	<!-- 自定义扩展，将会话信息保存到redis -->
+	<bean id="sessionDAO" class="cn.jufuns.core.shiro.session.SessionDAO">
+		<property name="sessionRepository" ref="jedisSessionRepository" />
+	</bean>
+
+
+	<bean id="sessionManager"
+		class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+		<property name="sessionValidationInterval" value="1800000" />
+		<property name="globalSessionTimeout" value="1800000" />
+		<!-- 自定义扩展，将会话信息保存到redis -->
+		<property name="sessionDAO" ref="sessionDAO" />
+<!-- 		<property name="sessionListeners">
+			<list>
+				<ref bean="sessionListener" />
+			</list>
+		</property> -->
+		<property name="sessionIdCookieEnabled" value="true" />
+		<property name="sessionIdCookie" ref="sessionIdCookie" />
+	</bean>
+
+	<!-- 自定义管理Session,用于查询当前会话列表 -->
+	<bean id="sessionRepositoryManager" class="cn.jufuns.core.shiro.session.mgt.SessionRepositoryManager">
+		<property name="sessionDAO" ref="sessionDAO" />
+	</bean>
+	
+	<!-- 使用redis作Session缓存  结束 -->
+	
+	<!-- 使用内存Map作为Session缓存  开始 -->
+	<!-- <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.ServletContainerSessionManager" 	/> -->
+	<!-- 使用内存Map作为Session缓存  结束 -->
+</beans>

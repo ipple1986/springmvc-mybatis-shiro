@@ -1,0 +1,3 @@
+此目录放Mybatis的XXXMapper.xml配置文件，必须以Mapper结尾命名
+
+测试分页

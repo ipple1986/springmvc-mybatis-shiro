@@ -1,0 +1,1 @@
+{"response_data":{"logoTitle":"聚房云服务平台","updateTime":"2016-09-28 16:01:34","logoPath":"/upload/logo/logo.png?t=1475049694250"}}

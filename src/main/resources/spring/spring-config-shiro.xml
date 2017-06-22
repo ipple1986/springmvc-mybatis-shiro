@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<description>Spring Shiro 配置文件</description>
+
+
+	<context:component-scan base-package="cn.jufuns.saas.controller" />
+
+	<!-- 1.rememberme配置 登录时使用 -->
+	<import resource="classpath:spring/spring-shiro-rememberme.xml" />
+
+	<!-- 2.realm配置 -->
+	<import resource="classpath:spring/spring-shiro-realm.xml" />
+
+	<!-- 3.会话管理器 配置 （使用redis管理会话） -->
+	<import resource="classpath:spring/spring-shiro-session.xml" />
+
+	<!-- 4.缓存管理器 配置 -->
+	<import resource="classpath:spring/spring-shiro-cache.xml" />
+
+
+	<!-- 5.声明securityManager -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="mybatisRealm" />
+		<!-- <property name="rememberMeManager" ref="rememberMeManager" /> -->
+		<property name="sessionManager" ref="sessionManager" />
+		<property name="rememberMeManager">
+			<null />
+		</property>
+		<property name="cacheManager" ref="cacheManager" />
+	</bean>
+
+
+	<!-- 6.配置url拦截入口过滤器 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login" />
+		<property name="successUrl" value="/index" />
+		<property name="unauthorizedUrl" value="/" />
+		<property name="filters">
+			<util:map>
+				<!-- <entry key="lauthc" value-ref="loginFormFilter" /> -->
+				<entry key="login" value-ref="loginFilter" />
+			</util:map>
+		</property>
+		<property name="filterChainDefinitions">
+			<value>
+				/ = anon
+				/login = anon
+				/doLogin = anon
+				/logout = anon
+				/alert/** = anon
+				/statics/** = anon
+				/** = login
+			</value>
+		</property>
+	</bean>
+	<!-- 自定义过滤器 -->
+	<bean id="loginFilter" class="cn.jufuns.saas.shiro.filter.LoginFilter" />
+	<!-- <bean id="loginFormFilter"
+		class="cn.jufuns.saas.shiro.filter.LoginFormAuthenticationFilter" /> -->
+
+
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+	<!-- 7.支持基于方法注解拦截 -->
+	<!-- 需要配置到spring-mvc-shiro.xml里，注解才生效 -->
+
+
+</beans>

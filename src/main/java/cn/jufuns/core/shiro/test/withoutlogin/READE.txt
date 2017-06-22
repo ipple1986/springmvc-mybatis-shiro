@@ -1,0 +1,9 @@
+1.有网友问：可不可以只用shiro的授权功能，不用其登录认证
+首先，从原则上来讲，框架是不建议你那样做的
+》从shiro框架的设计来看，是需要先有登录，再有授权功能的。AuthorizingRealm extends AuthenticatingRealm、AuthorizingSecurityManager extends AuthenticatingSecurityManager
+》subject对象，每次调用role,permission相关的 api时，都会先判断hasPrincipals（是否登录），而subject不提供字段princlipals的set方法，导致hasPrincipals必须要做登录操作,并登录成功才为true
+
+但是，可以违反规则在玩这个框架
+》伪登录
+见DemoShiroTestCase。testWithoutLogin测试方法
+

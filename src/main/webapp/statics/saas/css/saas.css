@@ -1,0 +1,218 @@
+@charset "utf-8";
+/*默认样式*/
+html,body{font-family: "微软雅黑";color: #333;margin:0px;padding:0px;font-size:14px;}
+.fl{float:left;}
+.fr{float:right;}
+ul,li{list-style:none;margin: 0;padding: 0;}
+.orange{color: #ff5400;}
+.clearfix:after,.clearfix:before{display:table;content:"";}
+.clearfix:after{clear:both;}
+input,button{border:0px;outline:0px;}
+table{border-collapse:collapse;border-spacing:0;}
+textarea{resize:none;outline:0px;}
+input{font-size: 14px; font-family: "微软雅黑";}
+input[type="checkbox"] {cursor: pointer;}
+
+/*新saas规范样式，希望以后放进main.css里面实现公用*/
+/*头部导航栏*/
+.saas-main_contPaddingTop{padding-top:45px;padding-bottom:0px;box-sizing: border-box;}
+.saas-Tile{width:100%;background-color:white;position: fixed;top:0px;border-bottom:1px solid #dfdfdf;z-index:9999999;}
+.saas-TileLeft{margin-left:20px; float:left;height:45px;line-height:45px;font-size: 14px;color: #999;text-decoration: none;}
+.saas-TileLeft a{font-size: 14px;color: #999;text-decoration: none;}
+.saas-TileLeft>*{margin-right:5px;}
+.saas-TileRight{margin-right:30px;float:right;height:45px;line-height:45px;}
+.saas-TitleBtn01{background:#ffffff;}
+.saas-TitleBtn02{color:white;background:#ff5400;}
+.saas-TitleBtn03{color:white;background:#555555;}
+.saas-TitleBtn04{background:#f5f5f5;}
+.saas-TitleBtn01,.saas-TitleBtn02,.saas-TitleBtn03,.saas-TitleBtn04{display: block;float: right;margin: 7px 0 0 14px; height:30px;line-height:30px;text-align:center;padding:0px 10px;border-radius:5px;border:0px;font-family: "微软雅黑";cursor: pointer;border:1px solid #dfdfdf;}
+/*页面主要内容*/
+.saas-content{margin:0px 30px 20px;}
+/*按钮*/
+.saas-btn01{background:#ffffff;}
+.saas-btn02{color:white;background:#ff5400;}
+.saas-btn03{color:white;background:#555555;}
+.saas-btn04{background:#f5f5f5;}
+.saas-btn01,.saas-btn02,.saas-btn03,.saas-btn04,.saas-btn05{height:30px;line-height:30px;text-align:center;padding:0px 10px;border-radius:5px;border:0px;font-family: "微软雅黑";cursor: pointer;border:1px solid #dfdfdf;}
+.saas-btn05{color:white;background:#ff5400;width:80px;position: relative;padding-left:28px;}
+.saas-btn05 span{font-size:26px; font-weight:800;margin-right:5px;position: absolute;top:-3px;left:10px;}
+
+/*带文字输入框*/
+.saas-textInput01{height:28px; width:280px;border:1px solid #dfdfdf;border-radius:5px;overflow: hidden;}
+.saas-textInput01-text{float:left;display: block;height:28px;line-height: 28px;width:100px;text-align: center;border-right:1px solid #dfdfdf;}
+.saas-textInput01-input{float:left;display: block;height:28px;line-height: 28px;width:calc(100% - 112px);padding-left:10px;}
+.saas-textInput02{height:28px; width:229px;border:1px solid #dfdfdf;border-radius:5px;overflow: hidden;}
+.saas-textInput02-text{float:left;display: block;height:28px;line-height: 28px;width:80px;text-align: center;border-right:1px solid #dfdfdf;}
+.saas-textInput02-input{float:left;display: block;height:28px;line-height: 28px;width:calc(100% - 92px);padding-left:10px;}
+.saas-textInput03{height:28px; width:240px;border:1px solid #dfdfdf;border-radius:5px;overflow: hidden;}
+.saas-textInput03-text{float:left;display: block;height:28px;line-height: 28px;width:80px;text-align: center;border-right:1px solid #dfdfdf;}
+.saas-textInput03-input{float:left;display: block;height:28px;line-height: 28px;width:calc(100% - 92px);padding-left:10px;}
+
+/*文字输入框无框*/
+.saas-textInput04{overflow: hidden;border-radius:5px;display: inline-block;width:310px;}
+.saas-textInput04 .textInputLeft{height:30px;line-height:30px; width:120px;float:left;display: block;text-align: right;padding-right:10px;}
+.saas-textInput04 .textInputRight{height:30px; width:calc(100% - 142px);float:left;display: block;border:1px solid #dfdfdf;padding:0px 5px;border-radius:5px;overflow: hidden;}
+
+/*文字多项输入框无框*/
+.saas-textInput06{overflow: hidden;border-radius:5px;display: inline-block;}
+.saas-textInput06 .textInputLeft{height:30px;line-height:30px; width:120px;float:left;display: block;text-align: right;padding-right:10px;}
+.saas-textInput06 .textInputRight{margin-right: 5px;height:30px; width:130px;float:left;display: block;border:1px solid #dfdfdf;padding:0px 5px;border-radius:5px;overflow: hidden;}
+.saas-textInput06 .textInputCenter{width:35px;height:30px;line-height:30px;float:left;display: block;}
+
+
+
+/*选择表单*/
+.saas-textInput05{overflow: hidden;border-radius:5px;display: inline-block;width:280px;}
+.saas-textInput05 .textInputLeft{height:30px;line-height:30px; width:120px;float:left;display: block;text-align: right;padding-right:10px;}
+.saas-textInput05 .textInputRight{height:30px;line-height:30px; width:calc(100% - 142px);float:left;display: block;overflow: hidden;}
+.saas-textInput05 .textInputRight>input{position: relative;top:2px;margin-right:20px;}
+
+.saas-mg01{margin-right:20px;}
+.saas-mg02{margin-right:15px;}
+.saas-mg03{margin-right:10px;}
+.saas-mgt01{margin-top:20px;}
+
+/*无文字下拉框*/
+.saas-textSelect00{border:1px solid #dfdfdf;width:100px;border-radius:5px;}
+.saas-textSelect00-select{display: block;height:28px;line-height: 28px;width:calc(100% - 40px);background: #fff;position:relative;border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
+.saas-textSelect00-select .jkb-box{background:#fff;color:#333;font-size:14px;}
+.saas-textSelect00-select .jboxInput-text{display:inline-block;margin-right:40px;}
+.saas-textSelect00-select .jkb-boxSelectText{display:inline-block;display:inline-block;padding:0 14px;height:28px;border-right:1px solid #dfdfdf;-webkit-border-radius:5px 0 0 5px;-moz-border-radius:5px 0 0 5px;border-radius:5px 0 0 5px;background:#f2f2f2;text-align:center;font-weight:400;line-height:28px;}
+.saas-textSelect00-select .jkb-box-select{display:inline-block;width:100px;height:28px;color:#333;font-size:14px;line-height:28px;cursor:pointer;position: relative;}
+.saas-textSelect00-select .jkb-box-select span{position:absolute;top:0;right:0px;z-index:2;display:inline-block;width:30px;height:28px;border-left:1px solid #dfdfdf;}
+.saas-textSelect00-select .jkb-box-select-option{position:absolute;right:-1px;z-index:3;display:none;overflow:auto;width:calc(100% + 0px);max-height:280px;border:1px solid #dfdfdf;-webkit-border-radius:0 0 5px 5px;-moz-border-radius:0 0 5px 5px;border-radius:0 0 5px 5px;background:#fff;}
+.saas-textSelect00-select .jkb-box-select-option p{margin:0;padding-left:10px;}
+.saas-textSelect00-select .jkb-box-select-option p:hover{background-color:#faebd7;}
+.saas-textSelect00 .font_type_id{padding-left: 10px;}
+/*带文字下拉框*/
+.saas-textSelect01{border:1px solid #dfdfdf;width:250px;border-radius:5px;}
+.saas-textSelect01-text{float:left;display: block;height:28px;line-height: 28px;width:100px;text-align: center;border-right:1px solid #dfdfdf;}
+.saas-textSelect01-select{float:left;display: block;height:28px;line-height: 28px;width:calc(100% - 112px);padding-left:10px;background: #fff;position:relative;}
+.saas-textSelect01-select .jkb-box{background:#fff;color:#333;font-size:14px;}
+.saas-textSelect01-select .jboxInput-text{display:inline-block;margin-right:40px;}
+.saas-textSelect01-select .jkb-boxSelectText{display:inline-block;display:inline-block;padding:0 14px;height:28px;border-right:1px solid #dfdfdf;-webkit-border-radius:5px 0 0 5px;-moz-border-radius:5px 0 0 5px;border-radius:5px 0 0 5px;background:#f2f2f2;text-align:center;font-weight:400;line-height:28px;}
+.saas-textSelect01-select .jkb-box-select{display:inline-block;width:140px;height:28px;color:#333;font-size:14px;line-height:28px;cursor:pointer;}
+.saas-textSelect01-select .jkb-box-select span{position:absolute;top:0;right:0;z-index:2;display:inline-block;width:30px;height:28px;border-left:1px solid #dfdfdf;}
+.saas-textSelect01-select .jkb-box-select-option{position:absolute;right:-1px;z-index:3;display:none;overflow:auto;width:calc(100% + 0px);max-height:280px;border:1px solid #dfdfdf;-webkit-border-radius:0 0 5px 5px;-moz-border-radius:0 0 5px 5px;border-radius:0 0 5px 5px;background:#fff;}
+.saas-textSelect01-select .jkb-box-select-option p{margin:0;padding-left:10px;}
+.saas-textSelect01-select .jkb-box-select-option p:hover{background-color:#faebd7;}
+
+.saas-textSelect02{border:1px solid #dfdfdf;width:252px;border-radius:5px;}
+.saas-textSelect02-text{float:left;display: block;height:28px;line-height: 28px;width:80px;text-align: center;border-right:1px solid #dfdfdf;}
+.saas-textSelect02-select{float:left;display: block;height:28px;line-height: 28px;width:calc(100% - 91px);padding-left:10px;background: #fff;position:relative;border-top-right-radius: 5px;border-bottom-right-radius: 5px;}
+.saas-textSelect02-select .jkb-box{background:#fff;color:#333;font-size:14px;}
+.saas-textSelect02-select .jboxInput-text{display:inline-block;margin-right:40px;}
+.saas-textSelect02-select .jkb-boxSelectText{display:inline-block;display:inline-block;padding:0 14px;height:28px;border-right:1px solid #dfdfdf;-webkit-border-radius:5px 0 0 5px;-moz-border-radius:5px 0 0 5px;border-radius:5px 0 0 5px;background:#f2f2f2;text-align:center;font-weight:400;line-height:28px;}
+.saas-textSelect02-select .jkb-box-select{display:inline-block;width:160px;height:28px;color:#333;font-size:14px;line-height:28px;cursor:pointer;}
+.saas-textSelect02-select .jkb-box-select span{position:absolute;top:0;right:0;z-index:2;display:inline-block;width:33px;height:28px;border-left:1px solid #dfdfdf;}
+.saas-textSelect02-select .jkb-box-select-option{position:absolute;right:-1px;z-index:3;display:none;overflow:auto;width:calc(100% + 0px);max-height:280px;border:1px solid #dfdfdf;-webkit-border-radius:0 0 5px 5px;-moz-border-radius:0 0 5px 5px;border-radius:0 0 5px 5px;background:#fff;}
+.saas-textSelect02-select .jkb-box-select-option p{margin:0;padding-left:10px;}
+.saas-textSelect02-select .jkb-box-select-option p:hover{background-color:#faebd7;}
+
+.saas-textSelect03{border:1px solid #dfdfdf;width:229px;border-radius:5px;}
+.saas-textSelect03-text{float:left;display: block;height:28px;line-height: 28px;width:80px;text-align: center;border-right:1px solid #dfdfdf;}
+.saas-textSelect03-select{float:left;display: block;height:28px;line-height: 28px;width:calc(100% - 91px);padding-left:10px;background: #fff;position:relative;border-top-right-radius: 5px;border-bottom-right-radius: 5px;}
+.saas-textSelect03-select .jkb-box{background:#fff;color:#333;font-size:14px;}
+.saas-textSelect03-select .jboxInput-text{display:inline-block;margin-right:40px;}
+.saas-textSelect03-select .jkb-boxSelectText{display:inline-block;display:inline-block;padding:0 14px;height:28px;border-right:1px solid #dfdfdf;-webkit-border-radius:5px 0 0 5px;-moz-border-radius:5px 0 0 5px;border-radius:5px 0 0 5px;background:#f2f2f2;text-align:center;font-weight:400;line-height:28px;}
+.saas-textSelect03-select .jkb-box-select{display:inline-block;width:160px;height:28px;color:#333;font-size:14px;line-height:28px;cursor:pointer;}
+.saas-textSelect03-select .jkb-box-select span{position:absolute;top:0;right:0;z-index:2;display:inline-block;width:33px;height:28px;border-left:1px solid #dfdfdf;}
+.saas-textSelect03-select .jkb-box-select-option{position:absolute;right:-1px;z-index:3;display:none;overflow:auto;width:calc(100% + 0px);max-height:280px;border:1px solid #dfdfdf;-webkit-border-radius:0 0 5px 5px;-moz-border-radius:0 0 5px 5px;border-radius:0 0 5px 5px;background:#fff;}
+.saas-textSelect03-select .jkb-box-select-option p{margin:0;padding-left:10px;}
+.saas-textSelect03-select .jkb-box-select-option p:hover{background-color:#faebd7;}
+
+.saas-textSelect04{border:1px solid #dfdfdf;width:240px;border-radius:5px;}
+.saas-textSelect04-text{float:left;display: block;height:30px;line-height: 30px;width:80px;text-align: center;border-right:1px solid #dfdfdf;}
+.saas-textSelect04-select{float:left;display: block;height:30px;line-height: 30px;width:calc(100% - 91px);padding-left:10px;background: #fff;position:relative;border-top-right-radius: 5px;border-bottom-right-radius: 5px;}
+.saas-textSelect04-select .jkb-box{background:#fff;color:#333;font-size:14px;}
+.saas-textSelect04-select .jboxInput-text{display:inline-block;margin-right:40px;}
+.saas-textSelect04-select .jkb-boxSelectText{display:inline-block;display:inline-block;padding:0 14px;height:28px;border-right:1px solid #dfdfdf;-webkit-border-radius:5px 0 0 5px;-moz-border-radius:5px 0 0 5px;border-radius:5px 0 0 5px;background:#f2f2f2;text-align:center;font-weight:400;line-height:28px;}
+.saas-textSelect04-select .jkb-box-select{display:inline-block;width:160px;height:30px;color:#333;font-size:14px;line-height:30px;cursor:pointer;}
+.saas-textSelect04-select .jkb-box-select span{position:absolute;top:0;right:0;z-index:2;display:inline-block;width:33px;height:30px;border-left:1px solid #dfdfdf;}
+.saas-textSelect04-select .jkb-box-select-option{position:absolute;right:-1px;z-index:3;display:none;overflow:auto;width:calc(100% + 0px);max-height:280px;border:1px solid #dfdfdf;-webkit-border-radius:0 0 5px 5px;-moz-border-radius:0 0 5px 5px;border-radius:0 0 5px 5px;background:#fff;}
+.saas-textSelect04-select .jkb-box-select-option p{margin:0;padding-left:10px;}
+.saas-textSelect04-select .jkb-box-select-option p:hover{background-color:#faebd7;}
+
+/*文字下拉不带框*/
+.saas-textSelect05{width:310px;border-radius:5px;}
+.saas-textSelect05-text{float:left;display: block;height:30px;line-height: 30px;width:120px;text-align: right;padding-right:10px;}
+.saas-textSelect05-select{float:left;display: block;height:30px;line-height: 30px;width:calc(100% - 142px);padding-left:10px;background: #fff;position:relative;border: 1px solid #dfdfdf;border-radius: 5px;}
+.saas-textSelect05-select .jkb-box{background:#fff;color:#333;font-size:14px;}
+.saas-textSelect05-select .jboxInput-text{display:inline-block;margin-right:40px;}
+.saas-textSelect05-select .jkb-boxSelectText{display:inline-block;display:inline-block;padding:0 14px;height:28px;border-right:1px solid #dfdfdf;-webkit-border-radius:5px 0 0 5px;-moz-border-radius:5px 0 0 5px;border-radius:5px 0 0 5px;background:#f2f2f2;text-align:center;font-weight:400;line-height:28px;}
+.saas-textSelect05-select .jkb-box-select{display:inline-block;width:160px;height:28px;color:#333;font-size:14px;line-height:28px;cursor:pointer;}
+.saas-textSelect05-select .jkb-box-select span{position:absolute;top:0;right:0;z-index:2;display:inline-block;width:33px;height:30px;border-left:1px solid #dfdfdf;}
+.saas-textSelect05-select .jkb-box-select-option{position:absolute;right:-1px;z-index:3;display:none;overflow:auto;width:calc(100% + 0px);max-height:280px;border:1px solid #dfdfdf;-webkit-border-radius:0 0 5px 5px;-moz-border-radius:0 0 5px 5px;border-radius:0 0 5px 5px;background:#fff;}
+.saas-textSelect05-select .jkb-box-select-option p{margin:0;padding-left:10px;}
+.saas-textSelect05-select .jkb-box-select-option p:hover{background-color:#faebd7;}
+
+.saas-textSelect06{width:240px;border-radius:5px;}
+.saas-textSelect06-text{float:left;display: block;height:30px;line-height: 30px;width:35px;text-align: right;padding-right:10px;}
+.saas-textSelect06-select{float:left;display: block;height:30px;line-height: 30px;width:calc(100% - 72px);padding-left:10px;background: #fff;position:relative;border: 1px solid #dfdfdf;border-radius: 5px;}
+.saas-textSelect06-select .jkb-box{background:#fff;color:#333;font-size:14px;}
+.saas-textSelect06-select .jboxInput-text{display:inline-block;margin-right:40px;}
+.saas-textSelect06-select .jkb-boxSelectText{display:inline-block;display:inline-block;padding:0 14px;height:28px;border-right:1px solid #dfdfdf;-webkit-border-radius:5px 0 0 5px;-moz-border-radius:5px 0 0 5px;border-radius:5px 0 0 5px;background:#f2f2f2;text-align:center;font-weight:400;line-height:28px;}
+.saas-textSelect06-select .jkb-box-select{display:inline-block;width:160px;height:28px;color:#333;font-size:14px;line-height:28px;cursor:pointer;}
+.saas-textSelect06-select .jkb-box-select span{position:absolute;top:0;right:0;z-index:2;display:inline-block;width:33px;height:30px;border-left:1px solid #dfdfdf;}
+.saas-textSelect06-select .jkb-box-select-option{position:absolute;right:-1px;z-index:3;display:none;overflow:auto;width:calc(100% + 0px);max-height:280px;border:1px solid #dfdfdf;-webkit-border-radius:0 0 5px 5px;-moz-border-radius:0 0 5px 5px;border-radius:0 0 5px 5px;background:#fff;}
+.saas-textSelect06-select .jkb-box-select-option p{margin:0;padding-left:10px;}
+.saas-textSelect06-select .jkb-box-select-option p:hover{background-color:#faebd7;}
+
+/*时间输入框*/
+.saas-dateInput01{width:252px;border-radius:5px;border:1px solid #dfdfdf;overflow: hidden;position: relative;}
+.saas-dateInput01 .textLeft{display:block;border-right:1px solid #dfdfdf;float: left;height:30px;line-height:30px;width:80px;text-align:center;}
+.saas-dateInput01 .textRight{display:block;float: left;height:28px;line-height:28px;width:calc(100% - 92px);padding-left:10px;}
+.saas-dateInput01 .icon{border-left: 1px solid #dfdfdf;height: 30px;line-height: 30px;width: 34px;display: block;float: left;position: absolute;right: 0px;cursor:pointer;}
+
+/*时间下拉选框（带文字）*/
+.saas-TimeSelect01{width:240px;}
+.saas-TimeSelect{border:1px solid #dfdfdf;border-radius:5px;overflow: hidden;}
+.saas-TimeSelect01 .saas-TimeSelectLeft{display:block;float:left;height:30px;line-height:30px;border-right:1px solid #dfdfdf;width:80px;text-align: center;}
+.saas-TimeSelect01 .saas-TimeSelectRight{display:block;float:left;height:30px;line-height:30px;width:calc(100% - 82px);}
+.saas-TimeSelect01 .saas-TimeSelectRight input{height:30px;display: block;width:calc(100% - 35px);border-right:1px solid #dfdfdf;float: left;}
+.saas-TimeSelect01 .saas-TimeSelectRight span{background: url(../images/icon_arrow_down_big.png) no-repeat center;width:34px;display: block;float: left;height:30px;background-color:white;}
+
+/*时间范围选择，不带框*/
+.saas-TimeSelect02{}
+.saas-TimeSelect02 .saas-TimeSelectLeft{display:block;float:left;height:30px;line-height:30px;width:120px;text-align: right;padding-right:10px;}
+.saas-TimeSelect02 .saas-TimeSelectRight{display:block;float:left;height:30px;line-height:30px;width:178px;border:1px solid #dfdfdf;border-radius:5px;overflow: hidden;}
+.saas-TimeSelect02 .saas-TimeSelectRight input{border:0px;display: block;float:left;width:calc(100% - 39px);height:30px;line-height:30px;margin-left:5px;}
+.saas-TimeSelect02 .saas-TimeSelectRight span{background: url(../images/icon_arrow_down_big.png) no-repeat center;width:34px;display: block;float: left;height:30px;background-color:white;}
+.saas-TimeSelect02 .saas-TimeSelectCenter{width:45px;text-align:center;height:30px;line-height:30px;display: block;float: left;}
+
+/*文字多文本输入框*/
+.saas-textarea01{overflow: hidden;border-radius:5px;display: inline-block;width:590px;}
+.saas-textarea01 .textareaLeft{height:30px;line-height:30px; width:120px;float:left;display: block;text-align: right;padding-right:10px;}
+.saas-textarea01 .textareaRight{height:100px; width:calc(100% - 142px);float:left;display: block;border:1px solid #dfdfdf;padding:5px;border-radius:5px;overflow: hidden;}
+
+/*证件图片*/
+.saas-textImg01{overflow: hidden;border-radius:5px;display: inline-block;width:100%;}
+.saas-textImg01 .textImgLeft{height:30px;line-height:30px; width:120px;float:left;display: block;text-align: right;padding-right:10px;}
+.saas-textImg01 .textImgRight{ width:calc(100% - 142px);float:left;display: block;padding:5px;}
+.saas-textImg01 .textImgRight .textImgBox{display:block;float:left;height:100px;width:100px;margin-right:20px;margin-bottom:20px;border:1px solid #dfdfdf;border-radius:5px;}
+
+/*弹出框*/
+.saas-mess{border:1px solid #dfdfdf;border-radius:5px;}
+.saas-mess-title{padding:0px 20px;border-bottom:1px solid #dfdfdf;}
+.saas-mess-titleLeft{float:left;height:45px;line-height:45px;}
+.saas-mess-titleLeft strong{height: 20px;display: block;padding-left: 14px;top: 14px;line-height: 18px;border-left: 4px solid #ff5400;color: #333;font-size: 18px;margin-top: 13px;}
+.saas-mess-titleRight{float:right;height:45px;line-height:45px;}
+.saas-mess-titleRight>*{margin: 8px 0px 0px 20px;}
+.saas-link01{color:#00b0d8;text-decoration: none;}
+.saas-link01:hover{text-decoration:underline;}
+
+/*列表公共样式*/
+.saas-table{border:1px solid #dfdfdf;border-radius:5px;background:white;overflow-x: auto;width:100%;}
+.saas-table table{}
+.saas-table table tr td{border-bottom:1px solid #dfdfdf;height:40px;text-align: center;padding:0px 10px;}
+.saas-table table thead tr td{font-size:16px;font-weight:bold;}
+.saas-table table tbody tr:last-child td{border-bottom:0px;}
+
+/*常用盒子*/
+.saas-box{border: 1px solid #dfdfdf;border-radius: 5px;background-color: #fff;}
+.saas-box-title{height: 40px;line-height: 40px;padding: 0 20px 0 20px;border-bottom: 1px solid #dfdfdf;font-size: 16px;overflow: hidden;position: relative;}
+.saas-box-titleLeft{float:left;color:#b6b6b6;}
+.saas-box-titleRight{float:right;color:#b6b6b6;}
+.saas-box-titleRight>*{margin-left:10px;}
+.saas-box-titleLeftText{height: 20px;display: block;position: absolute;left: 10px;padding-left: 14px;top: 10px;line-height: 18px;border-left: 4px solid #ff5400;color: #333;font-size: 18px;font-weight:800;}
+.saas-box-body{}

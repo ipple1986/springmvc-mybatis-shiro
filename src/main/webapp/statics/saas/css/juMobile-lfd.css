@@ -1,0 +1,51 @@
+@charset 'utf-8';
+/*reset*/
+
+/*物业费*/
+/*公共样式微调*/
+    *{-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;}
+    /*头部选择项*/
+    .jkb-choice-option .optionItem{margin-bottom: 20px;}
+    .jkb-choice-option .optionItem:nth-last-of-type(1){margin-bottom: 0;}
+    .jkb-choice-option .optionItem>*{float: left;}
+    .jkb-choice-option .optionItem .input-split{display: inline-block;height: 30px;line-height: 30px;margin: 0 8px;}
+    .jkb-textSelect .textSelectRight .jkb-select{width: 133px;}
+    .jkb-textInput01{width: 215px;}
+    .jkb-textSelect .textSelectLeft{width: 80px;background-color: #f2f2f2;}
+    .jkb-textInput .textInputLeft{width: 80px;}
+    .jkb-textInput .textInputRight{width: calc(100% - 80px);}
+
+    .jkb-fwsz-table{border-top:0 none;}
+    .jkb-fwsz-table .jkb-box{border: 1px solid #dfdfdf;border-bottom: 0 none;}
+
+/*物业费-新增账单 */
+
+    /*大模块样式调整*/
+    .jkb-context{padding: 0;margin-bottom: 20px;}
+    .jkb-fwsz label{font-weight: normal;font-size: 14px;}
+    .jkb-fwsz .jkb-table{border: 1px solid #dfdfdf;border-radius: 5px;}
+    .jkb-fwsz .autoHt{height:auto;}
+    .jkb-fwsz textarea{width: 360px;height: 108px;border-radius: 5px;border: 1px solid #dfdfdf;padding-left:5px;}
+    .jkb-fwsz .disable{color: #999;}
+    .jkb-fwsz .optionItem-right-text{margin-right: 5px;}
+    .jkb-fwsz .optionItem-right-text02{margin-left: 5px;}
+
+    .jkb-fwsz .optionItem-right-text{margin-right: 5px;}
+
+    /*头部选择项*/
+    .jkb-choice-option{background:#f5f5f5;}
+    /*内容表格样式调整*/
+    .table-headInfo{height: 45px;border-bottom: 1px solid #dfdfdf;line-height: 45px;padding-left: 20px;}
+    .jkb-table{min-height: auto;}
+
+    /*左侧下拉菜单，右侧主要内容圣杯布局*/
+    .grail{zoom: 1; height: 100%;}
+    .grail-lft{padding-left: 286px;}
+    .grail>div {float: left; border-radius: 5px;}
+    .main_moudule_wrap {width: 100%; background: #fff; min-height: 300px; }
+    .grail .aside {width: 266px; position: relative; min-height: 360px; }
+    .grail .aside-left {margin-left: -100%; left: -286px; height: 100%;}
+    .jkb-time{position: relative;}
+    .jkb-time .arrow{    display: inline-block; width: 30px; border-left: 1px solid #dfdfdf; position: absolute; top: 0; right: 0; height: 28px; z-index: 2;cursor: pointer;}

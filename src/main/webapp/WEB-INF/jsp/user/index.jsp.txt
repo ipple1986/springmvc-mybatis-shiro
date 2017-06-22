@@ -1,0 +1,169 @@
+﻿<% page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"  isELIgnored="false" %>
+<%taglib prefix="shiro" uri="http://shiro:apache.org/tags" %>    
+ <%
+
+	String basePath = request.getContextPath();
+	request.setAttribute("basePath", request.getContextPath());
+	
+%>   
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<title>${token.nickname} —个人中心</title>
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+		<link   rel="icon" href="${basePath}/favicon.ico" type="image/x-icon" />
+		<link   rel="shortcut icon" href="${basePath}/favicon.ico" />
+		<link href="${basePath}/js/bootstrap/3.3.5/css/bootstrap.min.css?${_v}" rel="stylesheet"/>
+		<link href="${basePath}/css/base.css?${_v}" rel="stylesheet"/>
+		<script  src="${basePath}/js/jquery/jquery1.8.3.min.js"></script>
+		<script  src="${basePath}/js/layer/layer.js"></script>
+		<script  src="${basePath}/js/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	</head>
+	<body data-target="#one" data-spy="scroll">
+		<!-- top -->
+		
+<div class="navbar navbar-inverse navbar-fixed-top animated fadeInDown" style="z-index: 101;height: 41px;">
+	  
+      <div class="container" style="padding-left: 0px; padding-right: 0px;">
+        <div class="navbar-header">
+          <button data-target=".navbar-collapse" data-toggle="collapse" type="button" class="navbar-toggle collapsed">
+            <span class="sr-only">导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+	     </div>
+	     <div role="navigation" class="navbar-collapse collapse">
+	     		<a id="_logo"  href="${basePath}" style="color:#fff; font-size: 24px;" class="navbar-brand hidden-sm">SSM + Shiro Demo 演示</a>
+	          <ul class="nav navbar-nav" id="topMenu">
+				<li class="dropdown ">
+					<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="${basePath}/user/index">
+						个人中心<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="${basePath}/user/index">个人资料</a></li>
+						<li><a href="${basePath}/user/updateSelf" >资料修改</a></li>
+						<li><a href="${basePath}/user/updatePswd" >密码修改</a></li>
+						<li><a href="${basePath}/role/mypermission">我的权限</a></li>
+					</ul>
+				</li>	  
+				<!--拥有 角色888888（管理员） ||  100002（用户中心）-->
+				<shiro:hasAnyRoles name='888888,100002'>          
+				<li class="dropdown ">
+					<a aria-expanded="false" aria-haspopup="true"  role="button" data-toggle="dropdown" class="dropdown-toggle" href="${basePath}/member/list">
+						用户中心<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<shiro:hasPermission name="/member/list">
+							<li><a href="${basePath}/member/list">用户列表</a></li>
+						</shiro:hasPermission>
+						<shiro:hasPermission name="/member/online">
+							<li><a href="${basePath}/member/online">在线用户</a></li>
+						</shiro:hasPermission>
+					</ul>
+				</li>	
+				</shiro:hasAnyRoles>         
+				<!--拥有 角色888888（管理员） ||  100003（权限频道）-->
+				<shiro:hasAnyRoles name='888888,100003'>
+					<li class="dropdown ">
+						<a aria-expanded="false" aria-haspopup="true"  role="button" data-toggle="dropdown" class="dropdown-toggle" href="${basePath}/permission/index">
+							权限管理<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<shiro:hasPermission name="/role/index">
+								<li><a href="${basePath}/role/index">角色列表</a></li>
+							</shiro:hasPermission>
+							<shiro:hasPermission name="/role/allocation">
+								<li><a href="${basePath}/role/allocation">角色分配（这是个JSP页面）</a></li>
+							</shiro:hasPermission>
+							<shiro:hasPermission name="/permission/index">
+								<li><a href="${basePath}/permission/index">权限列表</a></li>
+							</shiro:hasPermission>
+							<shiro:hasPermission name="/permission/allocation">
+								<li><a href="${basePath}/permission/allocation">权限分配</a></li>
+							</shiro:hasPermission>
+						</ul>
+					</li>	
+				</shiro:hasAnyRoles>    
+				<li>
+					<a class="dropdown-toggle" target="_blank" href="http://www.sojson.com/tag_shiro:html" target="_blank">
+						Shiro相关博客<span class="collapsing"></span>
+					</a>
+				</li>	          
+				<li>
+					<a class="dropdown-toggle" href="http://www.sojson.com/shiro" target="_blank">
+						本项目介绍<span class="collapsing"></span>
+					</a>
+				</li>	          
+				<li>
+					<a class="dropdown-toggle" href="http://www.sojson.com/jc/shiro:html" target="_blank">
+						Shiro Demo 其他版本<span class="collapsing"></span>
+					</a>
+				</li>	          
+	          </ul>
+	           <ul class="nav navbar-nav  pull-right" >
+				<li class="dropdown ${(index==10)?string('active','')}" style="color:#fff;">
+					<a aria-expanded="false" aria-haspopup="true"  role="button" data-toggle="dropdown"  
+						<shiro:user>  
+							onclick="location.href='${basePath}/user/index'" href="${basePath}/user/index" class="dropdown-toggle qqlogin" >
+							${token.nickname?default('阿西吧')}<span class="caret"></span></a>
+							<ul class="dropdown-menu" userid="${token.id}">
+								<li><a href="${basePath}/user/index">个人资料</a></li>
+								<li><a href="${basePath}/role/mypermission">我的权限</a></li>
+								<li><a href="javascript:void(0);" onclick="logout();">退出登录</a></li>
+							</ul>
+						</shiro:user>  
+						<shiro:guest>   
+							 href="javascript:void(0);" onclick="location.href='${basePath}/u/login'" class="dropdown-toggle qqlogin" >
+							<img src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_1.png">&nbsp;登录</a>
+						</shiro:guest>  					
+				</li>	
+	          </ul>
+	          <style>#topMenu>li>a{padding:10px 13px}</style>
+	    </div>
+  	</div>
+</div>
+
+<!-- top -->
+		
+		<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
+			<div class="row">
+				<_left.user 1/>
+				<div class="col-md-10">
+					<h2>个人资料</h2>
+					<hr>
+					<table class="table table-bordered">
+						<tr>
+							<th>昵称</th>
+							<td>${token.nickname?default('未设置')}</td>
+						</tr>
+						<tr>
+							<th>Email/帐号</th>
+							<td>${token.email?default('未设置')}</td>
+						</tr>
+						<tr>
+							<th>创建时间</th>
+							<td>${token.createTime?string('yyyy-MM-dd HH:mm')}</td>
+						</tr>
+						<tr>
+							<th>最后登录时间</th>
+							<td>${token.lastLoginTime?string('yyyy-MM-dd HH:mm')}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+			
+	<br/>
+成功登录
+<shiro:hasRole name="888888">
+    超级管理员
+</shiro:hasRole>
+<shiro:hasPermission name="/role/index">
+你访问/role/index的权限
+</shiro:hasPermission>
+<shiro:principal type="cn.jufuns.saas.entity.SysRole"></shiro:principal>
+</body>
+</html>

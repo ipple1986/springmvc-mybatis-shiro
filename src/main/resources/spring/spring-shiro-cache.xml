@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	>
+
+	<description>Spring Shiro CacheManager</description>
+	
+	
+	<!-- redis 的缓存 -->
+	<import resource="classpath:spring/spring-config-redis.xml" />
+	
+	
+	<bean id="defaultJedisManager" class="cn.jufuns.core.shiro.cache.jedis.support.DefaultJedisManager" >
+		<property name="jedisPool" ref="jedisPool" />
+	</bean>
+	<bean id="cacheManager" class="cn.jufuns.core.shiro.cache.mgt.JedisCacheManager">
+		<property name="jedisManager" ref="defaultJedisManager" />
+	</bean>
+	
+	<!-- <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" 	/> -->
+	
+</beans>
